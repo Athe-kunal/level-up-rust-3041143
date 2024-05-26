@@ -1,5 +1,12 @@
-fn sort_usernames<T: AsRef<str>>(usernames: &mut Vec<T>) {
-    todo!();
+fn sort_usernames<T: AsRef<str>+Ord+PartialEq>(usernames: &mut Vec<T>){
+    usernames.sort_by_cached_key(|s| s.as_ref().to_lowercase());
+    // let mut lower_case_users: Vec<String> = Vec::new();
+    // for user in usernames{
+    //     lower_case_users.push(user.as_ref().to_lowercase());
+    // }
+    // println!("{:?}",lower_case_users);
+    // lower_case_users.sort()
+
 }
 
 fn main() {
